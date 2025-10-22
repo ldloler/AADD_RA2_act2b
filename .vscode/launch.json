@@ -1,0 +1,14 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Spring Boot-AccessadadesRa2Ac2Application<accessadades-ra2-ac2>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "mainClass": "accessadades.ra2.ac2.accessadades_ra2_ac2.AccessadadesRa2Ac2Application",
+            "projectName": "accessadades-ra2-ac2",
+            "args": "",
+            "envFile": "${workspaceFolder}/.env"
+        }
+    ]
+}
