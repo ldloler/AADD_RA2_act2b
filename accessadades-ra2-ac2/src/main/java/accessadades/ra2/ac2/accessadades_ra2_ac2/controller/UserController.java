@@ -14,6 +14,8 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+
 
 
 
@@ -44,6 +46,12 @@ public class UserController {
     @GetMapping("/users")
     public ResponseEntity<String> getUsers() {
         String msg = ur.findAll().toString();
+        return new ResponseEntity<String>(msg, HttpStatus.OK);
+    }
+    
+    @GetMapping("/users/{user_id}")
+    public ResponseEntity<String> getMethodName(@RequestParam int user_id) {
+        String msg = ur.findOne(user_id).toString();
         return new ResponseEntity<String>(msg, HttpStatus.OK);
     }
     

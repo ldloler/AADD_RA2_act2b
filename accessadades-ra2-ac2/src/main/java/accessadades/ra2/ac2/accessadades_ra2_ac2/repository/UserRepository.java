@@ -47,6 +47,12 @@ public class UserRepository {
         return jdbcTemplate.query(sql, new UserRowMapper());
     }
 
+    // Get 1 user from id
+    public List<User> findOne(int id) {
+        String sql = "Select * FROM users where id = '" + id + "'";
+        return jdbcTemplate.query(sql, new UserRowMapper());
+    }
+
     // Insert 1 User
     public int save(User user) {
         String sql = "INSERT INTO db_ecomerce.users\n" + //
