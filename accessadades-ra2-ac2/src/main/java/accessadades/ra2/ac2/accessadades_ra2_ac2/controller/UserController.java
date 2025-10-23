@@ -13,6 +13,8 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.GetMapping;
+
 
 
 @RestController
@@ -22,8 +24,9 @@ public class UserController {
     @Autowired
     UserRepository ur;
 
+    // Save 1 user from RequestBody param.
     @PostMapping("/users")
-    public ResponseEntity<String> postMethodName(@RequestBody User user) {
+    public ResponseEntity<String> postUser(@RequestBody User user) {
         Timestamp timestamp = new Timestamp(System.currentTimeMillis());
         user.setDataCreated(timestamp);
         user.setDataUpdated(timestamp);
@@ -37,5 +40,12 @@ public class UserController {
 
         return new ResponseEntity<String>(msg, HttpStatus.BAD_REQUEST);
     }
+
+    @GetMapping("/users")
+    public ResponseEntity<String> getUsers() {
+        String msg = ur.findAll().toString();
+        return new ResponseEntity<String>(msg, HttpStatus.OK);
+    }
+    
     
 }
